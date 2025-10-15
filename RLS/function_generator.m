@@ -1,6 +1,6 @@
 %% all-to-all coupling with the same weights
 
-addpath('C:\Users\86131\Desktop\脉冲神经网络的稀疏性与噪声对异质网络编码性能的影响\代码整理\文章代码\代码复现\function_generation\functions\')
+addpath('C:\Users\86131\Desktop\function_generation\functions\')
 sr=10;
 n_stims=1;
 n_tests=1;
@@ -16,9 +16,9 @@ test_trials = 0:n_tests:(n_stims - 1);
 train_trials = 0:(n_stims-1);
 for i = 1:length(test_trials)
     t = test_trials(i);
-    idx = find(train_trials == t, 1);  % 找到匹配项的索引
+    idx = find(train_trials == t, 1);  
     if ~isempty(idx)
-        train_trials(idx) = [];  % 删除该元素
+        train_trials(idx) = [];  
     end
 end
 
@@ -128,5 +128,6 @@ end
 fprintf("Finished simulation to find a stable initial network state.\n")
 
 y0=[v; w; s];
+
 
 
