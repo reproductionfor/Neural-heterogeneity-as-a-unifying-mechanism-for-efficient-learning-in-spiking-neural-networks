@@ -1,9 +1,7 @@
-% By Liang Chen
-% May 4, 2022
+% By Fudong
+% Oct 15, 2025
 %
-% how to show the data distribution of the heterogeneous source
-% histogram: the y-axis represents the number count or percentage of
-% occurrences in the data for each column (bin).
+
 
 
 clc
