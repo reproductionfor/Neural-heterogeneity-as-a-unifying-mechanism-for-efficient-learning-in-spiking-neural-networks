@@ -1,7 +1,13 @@
 The code is currently being prepared and will be shared  before publication.
 
+Running RLS FORCE based experiments:
+
+They are all MATLAB code, and you can run them directly in MATLAB
+
 Running SGD experiments:
+
 In order to run an experiments you simply need to navigate to SuGD_code and run:
+
 python main.py
 
 Datasets:
