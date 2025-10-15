@@ -1,21 +1,37 @@
-The code is currently being prepared and will be shared  before publication.
+Code Availability
 
-Running RLS FORCE based experiments:
+The code is currently being prepared and will be publicly shared before the final publication of this paper.
+All experiments are organized by learning methods and can be run directly following the instructions below.
 
-They are all MATLAB code, and you can run them directly in MATLAB
+🧠 Running RLS and FORCE Experiments
 
-Running SGD experiments:
+The RLS- and FORCE-based experiments are implemented in MATLAB.
 
-In order to run an experiments you simply need to navigate to SuGD_code and run:
+Each experiment can be executed directly within the MATLAB environment without additional dependencies.
+
+The provided scripts reproduce the reservoir computing and dynamic trajectory fitting results presented in the paper.
+
+⚙️ Running SGD-Based Experiments
+
+The SGD-based deep SNN experiments are implemented in Python (PyTorch).
+
+To reproduce the results, navigate to the SuGD_code directory and run:
 
 python main.py
 
-Datasets:
 
-The following links will direct you to the place where you can download all datasets/data:
+Configuration files and hyperparameters correspond to those reported in Tables II–IV of the manuscript.
 
-Heidelberg Spiking Datasets (SHD and SSC) https://zenkelab.org/resources/spiking-heidelberg-datasets-shd
+📦 Datasets
 
-Neuromorphic-MNIST    https://www.garrickorchard.com/datasets/n-mnist
+All datasets used in this study are publicly available.
+Please download them from the official sources listed below:
 
-DVS Gesture     https://research.ibm.com/publications/a-low-power-fully-event-based-gesture-recognition-system
+Heidelberg Spiking Datasets (SHD and SSC)
+https://zenkelab.org/resources/spiking-heidelberg-datasets-shd
+
+Neuromorphic-MNIST (N-MNIST)
+https://www.garrickorchard.com/datasets/n-mnist
+
+DVS Gesture
+https://research.ibm.com/publications/a-low-power-fully-event-based-gesture-recognition-system
