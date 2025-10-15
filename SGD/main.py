@@ -21,24 +21,12 @@ import torchvision
 parser = argparse.ArgumentParser(description='PyTorch Spiking Neural Network')
 # Dataset
 parser.add_argument('--seed', type=int, default=1000, help='Seed')
-#parser.add_argument('--dataset', type=str, default='C:/Users/86131/Desktop/脉冲神经网络的稀疏性与噪声对异质网络编码性能的影响/代码整理/neural_heterogeneity-main/SuGD_code/F_MNIST', help='Choose Dataset to train')
-#parser.add_argument('--dataset', type=str, default='C:/Users/86131/Desktop/脉冲神经网络的稀疏性与噪声对异质网络编码性能的影响/代码整理/neural_heterogeneity-main/SuGD_code/SSC', help='Choose Dataset to train')
-parser.add_argument('--dataset', type=str, default='C:/Users/86131/Desktop/脉冲神经网络的稀疏性与噪声对异质网络编码性能的影响/代码整理/neural_heterogeneity-main/SuGD_code/NMNIST', help='Choose Dataset to train')
+parser.add_argument('--dataset', type=str, default='C:/Users/86131/Desktop/neural_heterogeneity-main/SuGD_code/NMNIST', help='Choose Dataset to train')
 
-#parser.add_argument('--dataset', type=str, default='C:/Users/86131/Desktop/脉冲神经网络的稀疏性与噪声对异质网络编码性能的影响/代码整理/neural_heterogeneity-main/SuGD_code/SHD', help='Choose Dataset to train')
-#parser.add_argument('--dataset', type=str, default='D:/Projects/N_Caltech101/Caltech101_split', help='Choose Dataset to train')
-#parser.add_argument('--dataset', type=str, default='C:/Users/86131/Desktop/脉冲神经网络的稀疏性与噪声对异质网络编码性能的影响/代码整理/neural_heterogeneity-main/SuGD_code/DVS', help='Choose Dataset to train')
-#parser.add_argument('--dataset', type=str, default='F_MNIST', help='Choose Dataset to train')
-#parser.add_argument('--train_path', type=str, default='D:/Projects/DvsGesture/DVS training dataset.h5', help='Training dataset file path')
-#parser.add_argument('--test_path', type=str, default='D:/Projects/DvsGesture/DVS testing dataset.h5', help='Test dataset file path')
-#parser.add_argument('--train_path', type=str, default='D:/Projects/SSC/ssc_train.h5', help='Training dataset file path')
-#parser.add_argument('--test_path', type=str, default='D:/Projects/SSC/ssc_test.h5', help='Test dataset file path')"D:\Projects\N_MNIST\NMNIST training dataset.h5"
+
 parser.add_argument('--train_path', type=str, default='D:/Projects/N_MNIST/NMNIST training dataset.h5', help='Training dataset file path')
 parser.add_argument('--test_path', type=str, default='D:/Projects/N_MNIST/NMNIST testing dataset.h5', help='Test dataset file path')
-#parser.add_argument('--train_path', type=str, default='C:/Users/86131/Desktop/脉冲神经网络的稀疏性与噪声对异质网络编码性能的影响/代码整理/neural_heterogeneity-main/SuGD_code/SHD/train.h5', help='Training dataset file path')
-#parser.add_argument('--test_path', type=str, default='C:/Users/86131/Desktop/脉冲神经网络的稀疏性与噪声对异质网络编码性能的影响/代码整理/neural_heterogeneity-main/SuGD_code/SHD/test.h5', help='Test dataset file path')
-#parser.add_argument('--train_path', type=str, default='D:/Projects/N_Caltech101/Caltech101_split/Caltech training dataset.h5', help='Training dataset file path')
-#parser.add_argument('--test_path', type=str, default='D:/Projects/N_Caltech101/Caltech101_split/Caltech testing dataset.h5', help='Test dataset file path')
+
 parser.add_argument('--results_path', type=str, default='results/', help='Save results file path')
 parser.add_argument('--class_list', type=int, nargs='+', default=[])
 # Simulation
@@ -505,71 +493,20 @@ def train_experiment1(prms, dir_save, dirName, test_net=False):
     #breakpoint()
     test_dataset = torchvision.datasets.FashionMNIST(root, train=False, transform=None, target_transform=None,
                                                      download=True)
-    # total_samples = len(train_dataset.data)
-    #
-    # # 随机选取 8000 个不重复索引
-    # random_indices = np.random.choice(total_samples, 8000, replace=False)
-    #
-    # # 获取数据和标签
-    # x_train = np.array(train_dataset.data[random_indices], dtype=float)
-    # x_train = x_train.reshape(x_train.shape[0], -1) / 255
-    #
-    # y_train = np.array(train_dataset.targets)[random_indices]
-
-    # all_images = train_dataset.data.numpy()  # shape: (60000, 28, 28)
-    # all_labels = train_dataset.targets.numpy()  # shape: (60000,)
-    #
-    # # 每类选1000个索引
-    # selected_indices = []
-    # for class_label in range(10):
-    #     class_indices = np.where(all_labels == class_label)[0]
-    #     selected = class_indices[:1000]  # 选前1000个（不打乱）
-    #     selected_indices.extend(selected)
-    #
-    # # 从原始数据中取出选中的样本
-    # x_train = all_images[selected_indices].astype(float).reshape(len(selected_indices), -1) / 255.0
-    # y_train = all_labels[selected_indices]
-
-    # print(f"x_train shape: {x_train.shape}")  # (10000, 784)
-    # print(f"y_train shape: {y_train.shape}")  # (10000,)
-    # import collections
-    # print(collections.Counter(y_train))
-    #breakpoint()
+ 
 
     x_train = np.array(train_dataset.data, dtype=float)
     x_train = x_train.reshape(x_train.shape[0], -1) / 255
     #x_test = torch.tensor(test_dataset.test_data, device=device, dtype=dtype)
     x_test = np.array(test_dataset.data, dtype=float)
     x_test = x_test.reshape(x_test.shape[0], -1) / 255
-    #y_test = np.array(test_dataset.targets, dtype=int)
-    # all_images1 = test_dataset.data.numpy()  # shape: (60000, 28, 28)
-    # all_labels1 = test_dataset.targets.numpy()  # shape: (60000,)
+  
 
-    # 每类选1000个索引
-    # selected_indices1 = []
-    # for class_label in range(10):
-    #     class_indices = np.where(all_labels1 == class_label)[0]
-    #     selected = class_indices[:200]  # 选前1000个（不打乱）
-    #     selected_indices1.extend(selected)
-    #
-    # # 从原始数据中取出选中的样本
-    # x_test = all_images1[selected_indices1].astype(float).reshape(len(selected_indices1), -1) / 255.0
-    # y_test = all_labels1[selected_indices1]
 
-    # print(f"x_train shape: {x_test.shape}")  # (10000, 784)
-    # print(f"y_train shape: {y_test.shape}")  # (10000,)
-    # import collections
-    # print(collections.Counter(y_test))
-    # breakpoint()
-
-    #y_train = torch.tensor(train_dataset.train_labels, device=device, dtype=dtype)
-    #y_test = torch.tensor(test_dataset.test_labels, device=device, dtype=dtype)
     y_train = np.array(train_dataset.targets, dtype=int)
     y_test = np.array(test_dataset.targets, dtype=int)
 
-    #units_train, times_train, labels_train = open_file(os.path.join(os.getcwd(), prms['train_path']))
-   #units_test, times_test, labels_test = open_file(os.path.join(os.getcwd(), prms['test_path']))
-    #breakpoint()
+
     if not prms['class_list']:
          prms['class_list'] = np.unique(y_train).tolist()
     print("Class list:", prms['class_list'])
