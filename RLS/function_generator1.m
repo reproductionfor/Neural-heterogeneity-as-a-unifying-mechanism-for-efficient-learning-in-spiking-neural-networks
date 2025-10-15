@@ -109,7 +109,7 @@ idx_train = train_trials(:) + 1;
 
 
 num_train = length(idx_train);
-train_signals = signals(idx_train,:,:);  % 预分配空间
+train_signals = signals(idx_train,:,:); 
 
 
 
@@ -137,4 +137,5 @@ error = y - target_2;
 MSE = mean(error.^2);   
 plot(y);
 hold on
+
 plot(target_2)
