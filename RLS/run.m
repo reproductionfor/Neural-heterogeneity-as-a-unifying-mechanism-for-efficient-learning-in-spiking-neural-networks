@@ -1,17 +1,4 @@
-% By Liang Chen, May 12, 2021
-% Updated on June 1, Sep. 8
-% Oct. 25: bursting
-% May 20, 2022
-%
-% Simulation of the network of Izhikevich neurons
-% dimensional form of eqs.
-% heterogeneous parameters with the Cauchy/Lorentzian distribution
-%
-% ref: Liang Chen, Sue Ann Campbell, Exact mean-field models for spiking
-%         neural networks with adaptation
-% preprint: https://arxiv.org/abs/2203.08341
-%
-%=========================================================
+
 tic
 clc
 clear
@@ -45,7 +32,7 @@ g=cauchyrnd(g_bar,delta_g,N,1);
 gsyn=1.2308;
 % or
 
-% deterministic generation: typo in [Montbrio2015], "tan", not "atan"
+% deterministic 
 
 % eta = zeros(N,1);
 % for j=1:N
