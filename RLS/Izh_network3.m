@@ -1,8 +1,6 @@
-% By Liang Chen, 
-% Updated on Sep. 8, 2021
+% By Fudong, 
+% Updated on Oct. 15, 2025
 %
-% introduce exact refractory time: from v(>= vpeak) to infinity, from -infinity to vreset 
-% dimensionless network model
 %
 %
 %% all-to-all coupling with the same weights
@@ -100,4 +98,5 @@ avg_fired_time = [0;fired_time(1:tmax(end))];
 R = fired_num/twin/N; % the firing rate
 
 %% ===========  The End ====================================
+
 
