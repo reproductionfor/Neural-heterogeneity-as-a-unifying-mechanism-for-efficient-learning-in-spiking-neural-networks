@@ -1,9 +1,5 @@
-% Liang Chen, May 12, 2021
-%
-% Upper case for dimensional form, lower case for dimensionless form
-% ref. [Nicola2013bif]
-%     
-%% dimensional form of the Izhikevich neuron eq.(46)-(49)
+
+
 % variables: V,W,S
 %
 % the revovery eq. of W
@@ -27,9 +23,7 @@ Tsyn = 4;             % synaptic time constant
 Vpeak = 30;
 Vreset = -55;  
 Wjump = 200;
-%
-%
-%% the dimensionless Izhikevich neuron eq.(50)-(53) 
+
 % variables
 % v = 1 + V/abs(VR);
 % w = W/(k*VR*VR);
@@ -47,7 +41,7 @@ I = Iext/(k1*VR*VR);
 %
 % synaptic eq. of s
 tsyn = Tsyn*k1*abs(VR)/C;
-sjump = Sjump*C/(k1*abs(VR));  % different from [Nicola2013bif]
+sjump = Sjump*C/(k1*abs(VR));  
 %
 % the resetting rule
 vpeak  = 1 + Vpeak/abs(VR);
