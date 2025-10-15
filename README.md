@@ -1,5 +1,9 @@
 The code is currently being prepared and will be shared  before publication.
 
+Running SGD experiments:
+In order to run an experiments you simply need to navigate to SuGD_code and run:
+python main.py
+
 Datasets:
 
 The following links will direct you to the place where you can download all datasets/data:
