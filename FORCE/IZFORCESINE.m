@@ -122,52 +122,5 @@ current(i,:) = z';
 RECB(i,:)=BPhi(1:5);
 
 
-if mod(i,round(100/dt))==1 
-drawnow
-gg = max(1,i - round(3000/dt));  %only plot for last 3 seconds
-figure(2)
-plot(dt*(gg:1:i)/1000,zx(:,gg:1:i),'k','LineWidth',2), hold on
-plot(dt*(gg:1:i)/1000,current(gg:1:i,:),'b--','LineWidth',2), hold off
-xlabel('Time (s)')
-ylabel('$\hat{x}(t)$','Interpreter','LaTeX')
-legend('Approximant','Target Signal')
-xlim([dt*i-3000,dt*i]/1000)
-figure(3)
-plot((1:1:i)*dt/1000,RECB(1:1:i,:))
-figure(14)
-plot(tspike(1:ns,2),tspike(1:ns,1),'k.')
-ylim([0,100])
-end   
 
-end
-%%
-tspike = tspike(tspike(:,2)~=0,:); 
-M = tspike(tspike(:,2)>dt*icrit); 
-AverageFiringRate = 1000*length(M)/(N*(T-dt*icrit));
-%% Plotting neurons before and after learning
-figure(30)
-for j = 1:1:5
-plot((1:1:i)*dt/1000,REC(1:1:i,j)/(vpeak-vreset)+j), hold on 
-end
-xlim([T/1000-2,T/1000])
-xlabel('Time (s)')
-ylabel('Neuron Index') 
-title('Post Learning')
-figure(31)
-for j = 1:1:5
-plot((1:1:i)*dt/1000,REC(1:1:i,j)/(vpeak-vreset)+j), hold on 
-end
-xlim([0,imin*dt/1000])
-xlabel('Time (s)')
-ylabel('Neuron Index') 
-title('Pre-Learning')
-figure(40)
-Z = eig(OMEGA+E*BPhi'); %eigenvalues after learning 
-Z2 = eig(OMEGA); %eigenvalues before learning 
-%%
-plot(Z2,'r.'), hold on 
-plot(Z,'k.') 
-legend('Pre-Learning','Post-Learning')
-xlabel('Re \lambda')
-ylabel('Im \lambda')
 
